@@ -115,6 +115,7 @@
       html {
         scroll-behavior: smooth;
         font-size: 16px;
+        overflow-x: hidden;
       }
 
       body {
@@ -123,6 +124,8 @@
         color: var(--bark);
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
       }
 
       img {
@@ -319,7 +322,7 @@
 
       /* Mobile overlay */
       .nav-overlay {
-        display: none;
+        display: flex;
         position: fixed;
         inset: 0;
         background: var(--bark);
@@ -328,10 +331,16 @@
         align-items: center;
         justify-content: center;
         gap: 2rem;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition:
+          transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0.4s;
       }
 
       .nav-overlay.active {
-        display: flex;
+        transform: translateX(0);
+        visibility: visible;
       }
 
       .nav-overlay .nav-link {
@@ -341,7 +350,17 @@
         letter-spacing: 0;
         text-transform: none;
         color: var(--cream);
+        opacity: 0;
+        transform: translateX(24px);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease,
+          color var(--transition);
       }
+      .nav-overlay.active .nav-link:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.15s; }
+      .nav-overlay.active .nav-link:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.2s; }
+      .nav-overlay.active .nav-link:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.25s; }
+      .nav-overlay.active .nav-link:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.3s; }
       .nav-overlay .nav-link::after {
         background: var(--gold);
       }
