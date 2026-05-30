@@ -208,7 +208,7 @@
 
       .logo-text {
         font-family: var(--ff-display);
-        font-size: 1.125rem;
+        font-size: clamp(0.45rem, 3.2vw, 1.125rem);
         font-weight: 500;
         letter-spacing: 0.01em;
         color: var(--cream);
@@ -933,6 +933,32 @@
         line-height: 1.7;
       }
 
+      .contact-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.75rem;
+      }
+
+      .contact-social-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        color: rgba(250, 247, 242, 0.5);
+        letter-spacing: 0.06em;
+        transition: color var(--transition);
+      }
+
+      .contact-social-link:hover {
+        color: var(--cream);
+      }
+
+      .contact-social-link svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
       /* Form */
       .contact-form {
         display: flex;
@@ -1323,7 +1349,7 @@
 
         <div class="hero-content">
           <span class="hero-eyebrow">Roztoczański Park Narodowy</span>
-          <h1 class="hero-title">Roztoczańska&nbsp;Stodoła</h1>
+          <h1 class="hero-title">Roztoczańska Stodoła</h1>
           <p class="hero-tagline">Tu odnajdziesz spokój</p>
           <span class="hero-divider" aria-hidden="true"></span>
           <a href="#gallery" class="hero-cta" aria-label="Przewiń do galerii">
@@ -1869,13 +1895,81 @@
 
               <div class="contact-detail">
                 <span class="contact-detail-label">Telefon</span>
-                <span>+48 XXX XXX XXX</span>
+                <span>+48 607 850 049</span>
               </div>
 
               <p class="contact-note">
                 Odpisujemy zwykle w ciągu 24 godzin. Chętnie odpowiemy na
                 wszystkie pytania dotyczące dostępności i warunków wynajmu.
               </p>
+
+              <div class="contact-social">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61590374644337"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-social-link"
+                  aria-label="Facebook — Roztoczańska Stodoła"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M13 8h-1a2 2 0 0 0-2 2v2H8v3h2v5h3v-5h2l.5-3H13v-2a.5.5 0 0 1 .5-.5H15V8h-2z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Facebook
+                </a>
+                <a
+                  href="https://www.instagram.com/roztoczanskastodola/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-social-link"
+                  aria-label="Instagram — Roztoczańska Stodoła"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
+                  Instagram
+                </a>
+              </div>
             </div>
 
             <form
