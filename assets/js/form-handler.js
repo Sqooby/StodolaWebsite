@@ -1,147 +1,130 @@
 /**
  * Contact Form Handler — EmailJS Integration
- * Manages form submission, validation, and feedback states
  */
-
 const ContactForm = (() => {
-    // EmailJS Configuration
-    // TODO: Replace these with actual EmailJS IDs during operator setup
-    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  const getConfig = () => {
+    if (typeof EmailJSConfig === 'undefined') {
+      console.warn('Brak EmailJSConfig — uruchom: node scripts/build.mjs');
+      return null;
+    }
+    return EmailJSConfig;
+  };
 
-    /**
-     * Initialize EmailJS and form submission handler
-     */
-    const init = () => {
-        // Wait for emailjs to be available
-        if (typeof emailjs === 'undefined') {
-            console.warn('EmailJS not loaded');
-            return;
-        }
+  const init = () => {
+    const form = document.getElementById('contact-form');
+    if (form) {
+      FormValidator.initLiveValidation(form);
+      form.addEventListener('submit', handleSubmit);
+    }
 
-        // Initialize EmailJS with public key
-        emailjs.init(EMAILJS_PUBLIC_KEY);
+    const config = getConfig();
+    if (!config || typeof emailjs === 'undefined') {
+      if (!config) return;
+      console.warn('EmailJS not loaded');
+      return;
+    }
 
-        const form = document.getElementById('contact-form');
-        if (form) {
-            form.addEventListener('submit', handleSubmit);
-            console.log('Contact form initialized');
-        }
+    emailjs.init(config.publicKey);
+    console.log('Contact form initialized');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const config = getConfig();
+    if (!config) {
+      showFeedback(
+        'error',
+        'Formularz nie jest skonfigurowany. Skontaktuj się emailem: anna.basznianin@gmail.com',
+      );
+      return;
+    }
+
+    const form = e.target;
+    const sanitized = FormValidator.getSanitizedFormData(form);
+    const formData = {
+      ...sanitized,
+      time: new Date().toLocaleString('pl-PL', {
+        dateStyle: 'long',
+        timeStyle: 'short',
+      }),
     };
 
-    /**
-     * Handle form submission
-     * @param {Event} e - Submit event
-     */
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const { isValid, errors } = FormValidator.validate(formData);
+    if (!isValid) {
+      FormValidator.displayErrors(errors);
+      return;
+    }
 
-        const form = e.target;
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            message: document.getElementById('message').value
-        };
+    FormValidator.clearErrors();
+    setLoadingState(true);
 
-        // Validate form data
-        const { isValid, errors } = FormValidator.validate(formData);
-        if (!isValid) {
-            FormValidator.displayErrors(errors);
-            return;
-        }
+    try {
+      await emailjs.send(config.serviceId, config.templateId, formData);
 
-        // Clear previous errors
-        FormValidator.clearErrors();
+      showFeedback(
+        'success',
+        'Dziękujemy! Twoja wiadomość została wysłana. Odezwiemy się wkrótce.',
+      );
 
-        // Show loading state
-        setLoadingState(true);
+      form.reset();
+      FormValidator.clearErrors();
+      FormValidator.resetTouched();
+    } catch (error) {
+      console.error('EmailJS error:', error?.text || error?.message || error);
+      showFeedback(
+        'error',
+        'Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się bezpośrednio emailem: anna.basznianin@gmail.com',
+      );
+    } finally {
+      setLoadingState(false);
+    }
+  };
 
-        try {
-            // Send email via EmailJS
-            await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                formData
-            );
+  const setLoadingState = (isLoading) => {
+    const button = document.querySelector('.btn-submit');
+    const textSpan = button?.querySelector('.button-text');
+    const spinner = button?.querySelector('.button-spinner');
+    const form = document.getElementById('contact-form');
 
-            // Show success message
-            showFeedback('success', 'Dziękujemy! Twoja wiadomość została wysłana. Odezwiemy się wkrótce.');
+    if (isLoading) {
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      textSpan.hidden = true;
+      spinner.hidden = false;
+      form.querySelectorAll('input, textarea').forEach((el) => {
+        el.disabled = true;
+      });
+    } else {
+      button.disabled = false;
+      button.setAttribute('aria-busy', 'false');
+      textSpan.hidden = false;
+      spinner.hidden = true;
+      form.querySelectorAll('input, textarea').forEach((el) => {
+        el.disabled = false;
+      });
+    }
+  };
 
-            // Reset form
-            form.reset();
-        } catch (error) {
-            console.error('EmailJS error:', error);
-            showFeedback('error', 'Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się bezpośrednio emailem: anna.basznianin@gmail.com');
-        } finally {
-            setLoadingState(false);
-        }
-    };
+  const showFeedback = (type, message) => {
+    const feedbackDiv = document.querySelector('[data-form-feedback]');
+    const messageP = feedbackDiv?.querySelector('.feedback-message');
 
-    /**
-     * Toggle form loading state (disable button, show spinner)
-     * @param {boolean} isLoading - Whether to show loading state
-     */
-    const setLoadingState = (isLoading) => {
-        const button = document.querySelector('.btn-submit');
-        const textSpan = button?.querySelector('.button-text');
-        const spinner = button?.querySelector('.button-spinner');
-        const form = document.getElementById('contact-form');
+    if (!feedbackDiv) return;
 
-        if (isLoading) {
-            button.disabled = true;
-            button.setAttribute('aria-busy', 'true');
-            textSpan.hidden = true;
-            spinner.hidden = false;
-            form.querySelectorAll('input, textarea').forEach(el => {
-                el.disabled = true;
-            });
-        } else {
-            button.disabled = false;
-            button.setAttribute('aria-busy', 'false');
-            textSpan.hidden = false;
-            spinner.hidden = true;
-            form.querySelectorAll('input, textarea').forEach(el => {
-                el.disabled = false;
-            });
-        }
-    };
+    feedbackDiv.className = `form-feedback form-feedback--${type}`;
+    feedbackDiv.setAttribute('role', 'alert');
+    if (messageP) {
+      messageP.textContent = message;
+    }
 
-    /**
-     * Show feedback message (success or error)
-     * @param {string} type - 'success' or 'error'
-     * @param {string} message - Message text
-     */
-    const showFeedback = (type, message) => {
-        const feedbackDiv = document.querySelector('[data-form-feedback]');
-        const messageP = feedbackDiv?.querySelector('.feedback-message');
+    feedbackDiv.hidden = false;
 
-        if (!feedbackDiv) return;
+    setTimeout(() => {
+      feedbackDiv.hidden = true;
+      feedbackDiv.removeAttribute('role');
+    }, 5000);
+  };
 
-        // Set feedback type and message
-        feedbackDiv.className = `form-feedback form-feedback--${type}`;
-        feedbackDiv.setAttribute('role', 'alert');
-        if (messageP) {
-            messageP.textContent = message;
-        }
-
-        // Show feedback
-        feedbackDiv.hidden = false;
-
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            feedbackDiv.hidden = true;
-            feedbackDiv.removeAttribute('role');
-        }, 5000);
-    };
-
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-        init();
-    });
-
-    return {
-        init
-    };
+  return { init };
 })();

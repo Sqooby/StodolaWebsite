@@ -1,0 +1,225 @@
+<section
+  id="contact"
+  class="contact-section"
+  aria-label="Kontakt i rezerwacja"
+>
+  <div class="contact-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-label reveal">Napisz do nas</span>
+        <h2 class="section-title reveal reveal-delay-1">
+          Zarezerwuj pobyt
+        </h2>
+      </div>
+    </div>
+
+    <div class="contact-body">
+      <div class="contact-info reveal">
+        <h3>Skontaktuj się<br />bezpośrednio</h3>
+
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <a href="mailto:anna.basznianin@gmail.com"
+            >anna.basznianin@gmail.com</a
+          >
+        </div>
+
+        <div class="contact-detail">
+          <span class="contact-detail-label">Telefon</span>
+          <span>+48 607 850 049</span>
+        </div>
+
+        <p class="contact-note">
+          Odpisujemy zwykle w ciągu 24 godzin. Chętnie odpowiemy na
+          wszystkie pytania dotyczące dostępności i warunków wynajmu.
+        </p>
+
+        <div class="contact-social">
+          <a
+            href="https://www.facebook.com/profile.php?id=61590374644337"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-social-link"
+            aria-label="Facebook — Roztoczańska Stodoła"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="5"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="M13 8h-1a2 2 0 0 0-2 2v2H8v3h2v5h3v-5h2l.5-3H13v-2a.5.5 0 0 1 .5-.5H15V8h-2z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Facebook
+          </a>
+          <a
+            href="https://www.instagram.com/roztoczanskastodola/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-social-link"
+            aria-label="Instagram — Roztoczańska Stodoła"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="5"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+            </svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <form
+        class="contact-form reveal reveal-delay-1"
+        id="contact-form"
+        novalidate
+        aria-label="Formularz rezerwacji"
+      >
+        <div class="form-group">
+          <label for="name">Imię i nazwisko *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            aria-required="true"
+            autocomplete="name"
+            minlength="2"
+            maxlength="100"
+            placeholder="Jan Kowalski"
+          />
+          <span
+            class="form-error"
+            data-error-for="name"
+            role="alert"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            aria-required="true"
+            autocomplete="email"
+            maxlength="254"
+            inputmode="email"
+            placeholder="jan@example.com"
+          />
+          <span
+            class="form-error"
+            data-error-for="email"
+            role="alert"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefon</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            maxlength="20"
+            inputmode="tel"
+            placeholder="+48 607 850 049"
+          />
+          <span
+            class="form-error"
+            data-error-for="phone"
+            role="alert"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Wiadomość *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            aria-required="true"
+            minlength="10"
+            maxlength="2000"
+            placeholder="Kiedy chcesz przyjechać? Ile osób?"
+          ></textarea>
+          <span
+            class="form-error"
+            data-error-for="message"
+            role="alert"
+          ></span>
+        </div>
+
+        <button type="submit" class="btn-submit" aria-busy="false">
+          <span class="button-text">Wyślij wiadomość</span>
+          <span class="button-spinner" hidden aria-hidden="true">
+            <svg
+              class="spinner-icon"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                opacity="0.2"
+              />
+              <path
+                d="M12 2 A10 10 0 0 1 22 12"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+            Wysyłanie...
+          </span>
+        </button>
+
+        <div class="form-feedback" data-form-feedback hidden>
+          <p class="feedback-message"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

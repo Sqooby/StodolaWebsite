@@ -32,7 +32,3 @@ const Gallery = (() => {
     };
 })();
 
-// Initialize on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    Gallery.init();
-});

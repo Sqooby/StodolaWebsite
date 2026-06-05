@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1C1917" />
+    <meta
+      name="description"
+      content="Regulamin pobytu w Roztoczańskiej Stodole — zasady dla gości."
+    />
+
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <title>Regulamin pobytu — Roztoczańska Stodoła</title>
+  </head>
+  <body class="regulamin-page">
+    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
+
+    <header class="site-header scrolled regulamin-header">
+      <nav class="site-nav" role="navigation" aria-label="Nawigacja">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="/" aria-label="Roztoczańska Stodoła — strona główna">
+              <svg
+                class="logo-icon"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <text
+                  x="50%"
+                  y="54%"
+                  dy=".35em"
+                  text-anchor="middle"
+                  font-size="20"
+                  font-weight="500"
+                  fill="currentColor"
+                  font-family="Georgia, serif"
+                >
+                  R
+                </text>
+              </svg>
+              <span class="logo-text">Roztoczańska Stodoła</span>
+            </a>
+          </div>
+          <a href="/" class="regulamin-back-link">← Strona główna</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="regulamin-main">
+      <div class="regulamin-container">
+        <span class="section-label">Dla gości</span>
+        <h1 class="regulamin-title">Regulamin pobytu</h1>
+        <p class="regulamin-intro">
+          Prosimy o zapoznanie się ze zasadami obowiązującymi w domku. Po
+          akceptacji wszystkich punktów otrzymasz dane do sieci WiFi.
+        </p>
+
+        <form id="regulamin-form" class="regulamin-form" novalidate>
+          <fieldset class="regulamin-rules">
+            <legend class="visually-hidden">Zasady pobytu</legend>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >Przeczytałem/am i akceptuję regulamin pobytu w Roztoczańskiej
+                Stodole.</span
+              >
+            </label>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >Zobowiązuję się do zachowania ciszy w godzinach
+                <strong>22:00–7:00</strong>.</span
+              >
+            </label>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >Palenie tytoniu dozwolone wyłącznie w wyznaczonym miejscu na
+                zewnątrz. W domku obowiązuje całkowity zakaz palenia.</span
+              >
+            </label>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >Segreguję odpady zgodnie z instrukcją w domku i zostawiam
+                obiekt w należytym porządku przy wymeldowaniu.</span
+              >
+            </label>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >Korzystam z bani, tarasu i udogodnień zgodnie z instrukcją.
+                Odpowiadam za szkody wyrządzone przez siebie lub osoby z mojej
+                grupy.</span
+              >
+            </label>
+
+            <label class="regulamin-rule">
+              <input type="checkbox" data-rule required />
+              <span
+                >W razie problemów lub awarii niezwłocznie kontaktuję się z
+                gospodarzem (<a href="tel:+48607850049">+48 607 850 049</a>).
+              </span>
+            </label>
+          </fieldset>
+
+          <p id="regulamin-error" class="regulamin-error" hidden role="alert"></p>
+
+          <button
+            type="submit"
+            id="regulamin-submit"
+            class="btn-submit regulamin-submit"
+            disabled
+          >
+            Dalej
+          </button>
+        </form>
+
+        <section
+          id="wifi-panel"
+          class="wifi-panel"
+          hidden
+          aria-live="polite"
+        >
+          <span class="section-label">Połączenie</span>
+          <h2 class="wifi-panel-title">Dane do WiFi</h2>
+          <p class="wifi-panel-note">
+            Hasło udostępniamy wyłącznie gościom po akceptacji regulaminu.
+          </p>
+
+          <dl class="wifi-details">
+            <div class="wifi-detail">
+              <dt>Nazwa sieci</dt>
+              <dd id="wifi-ssid"></dd>
+            </div>
+            <div class="wifi-detail">
+              <dt>Hasło</dt>
+              <dd id="wifi-password" class="wifi-password"></dd>
+            </div>
+          </dl>
+
+          <button type="button" id="wifi-copy" class="btn-submit btn-submit--secondary">
+            Kopiuj hasło
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <script src="/assets/js/regulamin-config.js" defer></script>
+    <script src="/assets/js/regulamin.js" defer></script>
+  </body>
+</html>
