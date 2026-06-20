@@ -1,8 +1,9 @@
-compound-engineering-plugin-main/
+claude-code-zasoby/**
 claude-code-zasoby/
-.DS_Store
-assets/hero.mp4
+.wrangler/**
 .wrangler/
 .env
 assets/js/emailjs-config.js
 assets/js/regulamin-config.js
+.DS_Store
+*.vsix
