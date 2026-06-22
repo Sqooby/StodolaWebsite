@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://roztoczanskastodola.pl" />
     <meta
       property="og:title"
-      content="Roztoczańska Stodoła — Domek w lesie | 10 osób, bania, cisza"
+      content="Roztoczańska Stodoła — Domek w lesie | 8 osób, bania, cisza"
     />
     <meta
       property="og:description"
@@ -23,7 +23,7 @@
     />
     <meta
       property="og:image"
-      content="https://roztoczanskastodola.pl/assets/images/cabin-exterior-front.jpg"
+      content="https://roztoczanskastodola.pl/assets/images/Messenger_creation_2A892222-ED55-44CD-9850-ADD14F6F5381.jpg"
     />
     <meta
       property="og:image:alt"
@@ -37,7 +37,7 @@
     <meta name="twitter:url" content="https://roztoczanskastodola.pl" />
     <meta
       name="twitter:title"
-      content="Roztoczańska Stodoła — Domek w lesie | 10 osób, bania, cisza"
+      content="Roztoczańska Stodoła — Domek w lesie | 8 osób, bania, cisza"
     />
     <meta
       name="twitter:description"
@@ -45,8 +45,63 @@
     />
     <meta
       name="twitter:image"
-      content="https://roztoczanskastodola.pl/assets/images/cabin-exterior-front.jpg"
+      content="https://roztoczanskastodola.pl/assets/images/Messenger_creation_2A892222-ED55-44CD-9850-ADD14F6F5381.jpg"
     />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://roztoczanskastodola.pl/" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Roztoczańska Stodoła",
+      "description": "Nowoczesny domek w sercu Roztoczańskiego lasu. 4 pokoje, bania z ciepłą wodą, pełne wyposażenie. Idealny na wypoczynek z rodziną lub przyjaciółmi. Do 8 osób.",
+      "url": "https://roztoczanskastodola.pl",
+      "telephone": "+48607850049",
+      "email": "anna.basznianin@gmail.com",
+      "image": "https://roztoczanskastodola.pl/assets/images/Messenger_creation_2A892222-ED55-44CD-9850-ADD14F6F5381.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "lubelskie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.45587527854643,
+        "longitude": 23.17579052273759
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Bania z ciepłą wodą", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Taras", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Miejsce do grillowania", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Salon z TV", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ogrzewanie", "value": true }
+      ],
+      "numberOfRooms": 4,
+      "priceRange": "700–900 PLN za dobę",
+      "petsAllowed": false,
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61590374644337",
+        "https://www.instagram.com/roztoczanskastodola/"
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5848JH8W');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- Favicon -->
     <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
@@ -56,18 +111,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
 
     <!-- GLightbox CDN -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css"
+      />
+    </noscript>
 
     <!-- EmailJS CDN -->
     <script
@@ -75,9 +146,14 @@
       defer
     ></script>
 
-    <title>Roztoczańska Stodoła — Domek w lesie | 10 osób, bania, cisza</title>
+    <title>Roztoczańska Stodoła — Domek w lesie | 8 osób, bania, cisza</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5848JH8W"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- PARTIALS:nav -->
 
     <main id="main-content">
