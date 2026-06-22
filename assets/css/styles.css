@@ -1478,3 +1478,24 @@ ul {
   line-height: 1.7;
   color: var(--bark);
 }
+
+/* ── Google Review button ── */
+.btn-google-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #3c4043;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+}
+
+.btn-google-review:hover {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+}
