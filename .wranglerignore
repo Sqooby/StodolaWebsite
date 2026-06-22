@@ -3,7 +3,6 @@ claude-code-zasoby/
 .wrangler/**
 .wrangler/
 .env
-assets/js/emailjs-config.js
 assets/js/regulamin-config.js
 .DS_Store
 *.vsix
