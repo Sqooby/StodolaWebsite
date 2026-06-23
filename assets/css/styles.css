@@ -1500,3 +1500,294 @@ ul {
 .btn-google-review:hover {
   box-shadow: 0 1px 6px rgba(0,0,0,0.2);
 }
+
+/* ============================================================
+     SUBPAGE SHARED (cennik, blog)
+  ============================================================ */
+.subpage-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  box-shadow: 0 1px 0 var(--border);
+}
+.subpage-header .logo-text,
+.subpage-header .logo-icon {
+  color: var(--bark);
+}
+.subpage-back-link {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--umber);
+  transition: color var(--transition);
+}
+.subpage-back-link:hover {
+  color: var(--bark);
+}
+.subpage-main {
+  padding: 5rem 1.5rem 5rem;
+}
+.subpage-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.subpage-label {
+  display: inline-block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.subpage-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.subpage-intro {
+  color: var(--umber);
+  font-size: 1.0625rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+.subpage-footer {
+  background: var(--bark);
+  padding: 2rem 1.5rem;
+}
+.subpage-footer-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.subpage-footer p {
+  font-size: 0.8125rem;
+  color: rgba(250, 247, 242, 0.35);
+}
+.subpage-footer a {
+  font-size: 0.8125rem;
+  color: rgba(250, 247, 242, 0.5);
+  transition: color var(--transition);
+}
+.subpage-footer a:hover {
+  color: var(--cream);
+}
+
+/* ============================================================
+     CENNIK PAGE
+  ============================================================ */
+.cennik-section {
+  margin-bottom: 3.5rem;
+}
+.cennik-section-title {
+  font-family: var(--ff-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.cennik-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.cennik-table th {
+  text-align: left;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--umber);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.cennik-table td {
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid rgba(221, 213, 200, 0.5);
+  color: var(--bark);
+  line-height: 1.5;
+}
+.cennik-table tr:last-child td {
+  border-bottom: none;
+}
+.cennik-table .price {
+  font-family: var(--ff-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.cennik-table .season-tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--forest);
+  color: #fff;
+  border-radius: 2px;
+  padding: 0.15rem 0.4rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.cennik-included {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.cennik-included li::before {
+  content: "✓ ";
+  color: var(--forest);
+  font-weight: 700;
+}
+.cennik-note {
+  background: var(--sand);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.9375rem;
+  color: var(--bark);
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+}
+.cennik-cta {
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.875rem 2rem;
+  font-family: var(--ff-body);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background var(--transition);
+}
+.cennik-cta:hover {
+  background: var(--forest-deep);
+}
+@media (max-width: 540px) {
+  .cennik-included {
+    grid-template-columns: 1fr;
+  }
+  .cennik-table {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================================
+     BLOG PAGE
+  ============================================================ */
+.blog-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+.blog-card {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2.5rem;
+}
+.blog-card:last-child {
+  border-bottom: none;
+}
+.blog-card-meta {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.blog-card-title {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.blog-card-title a {
+  color: var(--bark);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.blog-card-title a:hover {
+  color: var(--forest);
+}
+.blog-card-excerpt {
+  color: var(--umber);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.blog-card-link {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.blog-card-link:hover {
+  color: var(--forest-deep);
+}
+
+/* ============================================================
+     BLOG ARTICLE
+  ============================================================ */
+.article-meta {
+  font-size: 0.8125rem;
+  color: var(--umber);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+}
+.article-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--bark);
+}
+.article-body h2 {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 2.5rem 0 0.875rem;
+  line-height: 1.2;
+}
+.article-body h3 {
+  font-family: var(--ff-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 1.75rem 0 0.5rem;
+}
+.article-body p {
+  margin-bottom: 1.25rem;
+}
+.article-body ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.article-body li {
+  margin-bottom: 0.4rem;
+}
+.article-body strong {
+  font-weight: 700;
+}
+.article-cta-box {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--sand);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.article-cta-box p {
+  margin-bottom: 1rem;
+  font-size: 1.0625rem;
+  color: var(--bark);
+}
+.article-cta-box .cennik-cta {
+  display: inline-block;
+}
