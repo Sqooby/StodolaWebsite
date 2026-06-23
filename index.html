@@ -879,17 +879,8 @@
       </div>
 
       <div class="map-container reveal reveal-delay-1">
-        <iframe
-          src="https://maps.google.com/maps?q=50.45587527854643,23.17579052273759&hl=pl&z=15&output=embed"
-          width="600"
-          height="450"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Roztoczańska Stodoła — mapa lokalizacji"
-        >
-        </iframe>
+        <gmpx-api-loader key="AIzaSyBtIuCRMLs-X8tlO_k9VPVP0-ZViJw02Lg" solution-channel="GMP_QB_locatorplus_v11_c"></gmpx-api-loader>
+        <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
       </div>
     </div>
   </div>
@@ -1282,6 +1273,19 @@
       defer
     ></script>
     <script src="/assets/js/hero.js" defer></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.15/index.min.js"></script>
+    <script>
+      const LOCATOR_CONFIG = {
+        locations: [
+          {title:"Roztoczańska Stodoła",address1:"Majdan Sopocki Pierwszy 11KB",address2:"22-672, Polska",coords:{lat:50.44853996826159,lng:23.167623335581965},placeId:"ChIJK53qlYBWI0cRoDOhOeZbpHk"}
+        ],
+        mapOptions: {center:{lat:50.44853996826159,lng:23.167623335581965},fullscreenControl:true,mapTypeControl:false,streetViewControl:false,zoom:14,zoomControl:true,maxZoom:17,mapId:""},
+        capabilities: {input:false,autocomplete:false,directions:false,distanceMatrix:false,details:false,actions:false}
+      };
+      customElements.whenDefined('gmpx-store-locator').then(() => {
+        document.querySelector('gmpx-store-locator').configureFromQuickBuilder(LOCATOR_CONFIG);
+      });
+    </script>
     <script src="/assets/js/nav.js" defer></script>
     <script src="/assets/js/reveal.js" defer></script>
     <script src="/assets/js/gallery.js" defer></script>
